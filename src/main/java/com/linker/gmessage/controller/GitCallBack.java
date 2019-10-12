@@ -1,11 +1,9 @@
 package com.linker.gmessage.controller;
 
 import com.google.gson.Gson;
-import com.linker.gmessage.bean.MarkdownMessage;
 import com.linker.gmessage.bean.TestData;
 import com.linker.gmessage.bean.TestMessage;
 import com.linker.gmessage.config.MsgType;
-import com.linker.gmessage.util.JsonUtils;
 import com.linker.gmessage.util.MapMarkdownUtils;
 import com.linker.gmessage.util.MapTextUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,13 +32,7 @@ public class GitCallBack {
         textSend(textContent);
     }
 
-    @PostMapping("/markdownSend")
-    public void markdownSend(HttpServletRequest request) throws Exception {
-        Map<String, Object> map = formatTransform(request);
-        //遍历Map,转为微信API格式
-        String textContent =  MapMarkdownUtils.markdownString(map);
-        markdownSend(textContent);
-    }
+
 
     public Map formatTransform(HttpServletRequest request)throws Exception{
         request.setCharacterEncoding("UTF-8");
@@ -59,19 +51,11 @@ public class GitCallBack {
 
     //文本发送
     public void textSend(String textContent){
+        System.out.println(textContent);
+
         TestData testData = new TestData(textContent);
         TestMessage weixinData = new TestMessage(testData);
         weixinData.setMsgType(MsgType.TEXT.getCode());
-        //String url = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=91bce2d5-b357-4856-9872-13d7894105da";
-        //JsonUtils.requestInvoke(url,weixinData);
-    }
-
-    //markdown发送
-    public void markdownSend(String textContent){
-        System.out.println(textContent);
-        TestData testData = new TestData(textContent);
-        MarkdownMessage weixinData = new MarkdownMessage(testData);
-        weixinData.setMsgType(MsgType.MARKDOWN.getCode());
         //String url = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=91bce2d5-b357-4856-9872-13d7894105da";
         //JsonUtils.requestInvoke(url,weixinData);
     }

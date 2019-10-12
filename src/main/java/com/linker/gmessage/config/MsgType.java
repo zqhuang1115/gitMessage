@@ -2,9 +2,9 @@ package com.linker.gmessage.config;
 
 public enum MsgType {
 
-    TEXT("text", "文本"),
+    TEXT("text", "文本");
 
-    MARKDOWN("markdown", "markdown类型");
+    //, MARKDOWN("markdown", "markdown类型");
 
     private String code;
 
