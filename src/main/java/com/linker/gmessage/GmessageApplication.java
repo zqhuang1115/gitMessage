@@ -4,14 +4,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.Environment;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+//import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import utils.DefaultProfileUtil;
 
 import java.net.InetAddress;
 
 @Slf4j
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = {"com.linker.gmessage.repository","**.repository"})
+//@EnableJpaRepositories(basePackages = {"com.linker.gmessage","**.repository"})
 public class GmessageApplication {
 
     public static void main(String[] args) {
