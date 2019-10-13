@@ -19,13 +19,13 @@ public class MapTextUtils {
         Gson gson = new Gson();
         StringBuffer paramStr = new StringBuffer();
         final String[] returnString = new String[1];
-        String action = String.valueOf(map.get("action"));
+        String action = String.valueOf(map.get(""));
         map.forEach((k, v) ->{
             if(k.equals("data")){
                 Map<String, Object> mapdata ;
                 try {
                     mapdata = gson.fromJson((new ObjectMapper()).writeValueAsString(v), map.getClass());
-                    if(mapdata.containsKey("project")){
+                    if(mapdata.containsKey("")){
                         Map<String, Object> mapproject = gson.fromJson(new ObjectMapper().writeValueAsString(mapdata.get("project")), map.getClass());
                         paramStr.append("["+mapproject.get("name")+"]");
                     }

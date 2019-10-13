@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.linker.gmessage.bean.TestData;
 import com.linker.gmessage.bean.TestMessage;
 import com.linker.gmessage.config.MsgType;
-import com.linker.gmessage.util.MapMarkdownUtils;
+//import com.linker.gmessage.util.MapMarkdownUtils;
 import com.linker.gmessage.util.MapTextUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +31,6 @@ public class GitCallBack {
         String textContent =  MapTextUtils.textString(map);
         textSend(textContent);
     }
-
 
 
     public Map formatTransform(HttpServletRequest request)throws Exception{
