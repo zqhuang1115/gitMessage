@@ -12,7 +12,7 @@ import lombok.Data;
 @JsonInclude( JsonInclude.Include.NON_NULL)
 public class TestMessage<T extends BaseMessage> {
 
-    @JsonProperty("msgtype")
+    @JsonProperty("msgtypehh")
     private String msgType;
 
     @JsonProperty("text")
