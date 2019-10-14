@@ -19,9 +19,10 @@ public class MapTextUtils {
         Gson gson = new Gson();
         StringBuffer paramStr = new StringBuffer();
         final String[] returnString = new String[1];
+        // String action = String.valueOf(map.get("action"));
         String action = String.valueOf(map);
         map.forEach((k, v) ->{
-            //if(k.equals("data")){
+            if(k.equals("data")){
                 Map<String, Object> mapdata ;
                 try {
                     mapdata = gson.fromJson((new ObjectMapper()).writeValueAsString(v), map.getClass());
@@ -35,11 +36,10 @@ public class MapTextUtils {
                     }
                 } catch (JsonProcessingException e) {
                     e.printStackTrace();
-                }
-                catch (ParseException e) {
+                } catch (ParseException e) {
                     e.printStackTrace();
                 }
-//            }
+            }
         });
         return returnString[0];
 
@@ -61,7 +61,7 @@ public class MapTextUtils {
         Gson gson = new Gson();
 
         if(mapcommits.containsKey("commiter")){
-            paramStr.append("操作者："+mapcommits.get("commiter"));
+            paramStr.append("操作者：").append(mapcommits.get("commiter"));
             if(mapcommits.get("message") == null){
                 paramStr.append("没有信息");
             }else{
