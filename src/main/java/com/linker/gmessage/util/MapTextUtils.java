@@ -29,6 +29,7 @@ public class MapTextUtils {
                     if(mapdata.containsKey("repository")){
                         Map<String, Object> maprepo = gson.fromJson(new ObjectMapper().writeValueAsString(mapdata.get("repository")), map.getClass());
                         paramStr.append("["+maprepo.get("full_name")+"]");
+                        System.out.println(maprepo.get("full_name"));
                     }
                     if(mapdata.containsKey("commits")){
                         Map<String, Object> mapcommits = gson.fromJson(new ObjectMapper().writeValueAsString(mapdata.get("commits")), map.getClass());
