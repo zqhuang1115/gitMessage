@@ -25,11 +25,11 @@ public class MapTextUtils {
         System.out.println("this is v"+map.values());
 
         map.forEach((k, v) ->{
-            if(k.equals("data")){
+            if(k.equals("pusher")){
                 Map<String, Object> mapdata ;
-                System.out.println("this is v2"+v);
-            try {
+                try {
                     mapdata = gson.fromJson((new ObjectMapper()).writeValueAsString(v), map.getClass());
+                    System.out.println("this is mapdata"+mapdata));
                     if(mapdata.containsKey("repository")){
                         Map<String, Object> maprepo = gson.fromJson(new ObjectMapper().writeValueAsString(mapdata.get("repository")), map.getClass());
                         paramStr.append("["+maprepo.get("full_name")+"]");
