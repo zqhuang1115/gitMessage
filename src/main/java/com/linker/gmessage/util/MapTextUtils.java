@@ -36,13 +36,14 @@ public class MapTextUtils {
                     }
                     if(mapdata.containsKey("commits")){
                         Map<String, Object> mapcommits = gson.fromJson(new ObjectMapper().writeValueAsString(mapdata.get("commits")), map.getClass());
-                        returnString[0] = task(mapcommits, paramStr, map);
+                        paramStr.append("["+mapcommits.get("full_name")+"]");
                     }
                 } catch (JsonProcessingException e) {
                     e.printStackTrace();
-                } catch (ParseException e) {
-                    e.printStackTrace();
                 }
+//                catch (ParseException e) {
+//                    e.printStackTrace();
+//                }
             //}
         });
         return returnString[0];
@@ -61,17 +62,17 @@ public class MapTextUtils {
         return (new SimpleDateFormat("yyyy-MM-dd")).format(calendar.getTime());
     }
 
-    public static  String task(Map<String, Object> mapcommits,StringBuffer paramStr,Map<String,Object> map) throws JsonProcessingException, ParseException {
-        Gson gson = new Gson();
-
-        if(mapcommits.containsKey("commiter")){
-            paramStr.append("操作者：").append(mapcommits.get("commiter"));
-            if(mapcommits.get("message") == null){
-                paramStr.append("没有信息");
-            }else{
-                paramStr.append(times(mapcommits.get("message")));
-            }
-        }
-        return  paramStr.toString();
-    }
+//    public static  String task(Map<String, Object> mapcommits,StringBuffer paramStr,String action,Map<String,Object> map) throws JsonProcessingException, ParseException {
+//        Gson gson = new Gson();
+//
+//        if(mapcommits.containsKey("commiter")){
+//            paramStr.append("操作者：").append(mapcommits.get("commiter"));
+//            if(mapcommits.get("message") == null){
+//                paramStr.append("没有信息");
+//            }else{
+//                paramStr.append(times(mapcommits.get("message")));
+//            }
+//        }
+//        return  paramStr.toString();
+//    }
 }
