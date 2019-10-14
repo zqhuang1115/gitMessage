@@ -25,7 +25,8 @@ public class MapTextUtils {
         map.forEach((k, v) ->{
             //if(k.equals("data")){
                 Map<String, Object> mapdata ;
-                try {
+                System.out.println("this is v"+v);
+            try {
                     mapdata = gson.fromJson((new ObjectMapper()).writeValueAsString(v), map.getClass());
                     if(mapdata.containsKey("repository")){
                         Map<String, Object> maprepo = gson.fromJson(new ObjectMapper().writeValueAsString(mapdata.get("repository")), map.getClass());
@@ -41,7 +42,7 @@ public class MapTextUtils {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-           // }
+            //}
         });
         return returnString[0];
 
