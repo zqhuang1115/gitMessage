@@ -19,6 +19,7 @@ public class MapTextUtils {
         Gson gson = new Gson();
         StringBuffer paramStr = new StringBuffer();
         final String[] returnString = new String[1];
+        System.out.println("this is map"+map);
         // String action = String.valueOf(map.get("action"));
         String action = String.valueOf(map);
         map.forEach((k, v) ->{
