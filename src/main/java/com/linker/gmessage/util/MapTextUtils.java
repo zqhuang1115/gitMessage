@@ -22,13 +22,14 @@ public class MapTextUtils {
         // String action = String.valueOf(map.get("action"));
         String action = String.valueOf(map);
         map.forEach((k, v) ->{
-            //if(k.equals("data")){
+            if(k.equals("data")){
                 Map<String, Object> mapdata ;
                 try {
                     mapdata = gson.fromJson((new ObjectMapper()).writeValueAsString(v), map.getClass());
                     if(mapdata.containsKey("repository")){
                         Map<String, Object> maprepo = gson.fromJson(new ObjectMapper().writeValueAsString(mapdata.get("repository")), map.getClass());
                         paramStr.append("["+maprepo.get("full_name")+"]");
+                        System.out.println("this is param"+paramStr);
                     }
                     if(mapdata.containsKey("commits")){
                         Map<String, Object> mapcommits = gson.fromJson(new ObjectMapper().writeValueAsString(mapdata.get("commits")), map.getClass());
@@ -39,7 +40,7 @@ public class MapTextUtils {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-            //}
+            }
         });
         return returnString[0];
 
