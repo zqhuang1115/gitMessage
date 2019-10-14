@@ -21,7 +21,7 @@ public class MapTextUtils {
         final String[] returnString = new String[1];
         // String action = String.valueOf(map.get("action"));
         String action = String.valueOf(map);
-        System.out.println("this is map"+action);
+        System.out.println("this is map"+map);
         System.out.println("this is k"+map.keySet());
         map.forEach((k, v) ->{
             if(k.equals("data")){
