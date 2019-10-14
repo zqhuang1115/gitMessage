@@ -20,7 +20,7 @@ public class MapTextUtils {
         StringBuffer paramStr = new StringBuffer();
         final String[] returnString = new String[1];
         // String action = String.valueOf(map.get("action"));
-        String action = String.valueOf(map);
+        //String action = String.valueOf(map);
         System.out.println("this is k"+map.keySet());
         //System.out.println("this is v"+map.values());
 
@@ -36,7 +36,7 @@ public class MapTextUtils {
                     }
                     if(mapdata.containsKey("commits")){
                         Map<String, Object> mapcommits = gson.fromJson(new ObjectMapper().writeValueAsString(mapdata.get("commits")), map.getClass());
-                        returnString[0] = task(mapcommits, paramStr, action, map);
+                        returnString[0] = task(mapcommits, paramStr, map);
                     }
                 } catch (JsonProcessingException e) {
                     e.printStackTrace();
@@ -61,7 +61,7 @@ public class MapTextUtils {
         return (new SimpleDateFormat("yyyy-MM-dd")).format(calendar.getTime());
     }
 
-    public static  String task(Map<String, Object> mapcommits,StringBuffer paramStr,String action,Map<String,Object> map) throws JsonProcessingException, ParseException {
+    public static  String task(Map<String, Object> mapcommits,StringBuffer paramStr,Map<String,Object> map) throws JsonProcessingException, ParseException {
         Gson gson = new Gson();
 
         if(mapcommits.containsKey("commiter")){
