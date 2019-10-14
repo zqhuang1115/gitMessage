@@ -21,31 +21,48 @@ public class MapTextUtils {
         final String[] returnString = new String[1];
         // String action = String.valueOf(map.get("action"));
         //String action = String.valueOf(map);
-        System.out.println("this is k"+map.keySet());
-        //System.out.println("this is v"+map.values());
-
-        map.forEach((k, v) ->{
-            //if(k.equals("data")){
-                Map<String, Object> mapdata ;
+//        System.out.println("this is k"+map.keySet());
+//        System.out.println(map);
+//        System.out.println(map.get("pusher"));
+        for (String name :map.keySet()){
+            if(name.equals("pusher")) {
+                //System.out.println(name);
+                Map<String, Object> mapdata;
                 try {
-                    mapdata = gson.fromJson((new ObjectMapper()).writeValueAsString(v), map.getClass());
-                    System.out.println("this is mapdata"+mapdata);
-                    if(mapdata.containsKey("repository")){
+                    mapdata = gson.fromJson((new ObjectMapper()).writeValueAsString(name), map.getClass());
+                    if (mapdata.containsKey("repository")) {
                         Map<String, Object> maprepo = gson.fromJson(new ObjectMapper().writeValueAsString(mapdata.get("repository")), map.getClass());
-                        paramStr.append("["+maprepo.get("full_name")+"]");
+                        paramStr.append("[" + maprepo.get("full_name") + "]");
                     }
                     if(mapdata.containsKey("commits")){
                         Map<String, Object> mapcommits = gson.fromJson(new ObjectMapper().writeValueAsString(mapdata.get("commits")), map.getClass());
-                        paramStr.append("["+mapcommits.get("full_name")+"]");
+                        paramStr.append("Commiter"+mapcommits.get("commiter"));
                     }
                 } catch (JsonProcessingException e) {
                     e.printStackTrace();
                 }
-//                catch (ParseException e) {
-//                    e.printStackTrace();
-//                }
-            //}
-        });
+            }
+        };
+//        map.forEach((k, v) ->{
+//            if(k.equals("pusher")) {
+////                System.out.println(k);
+////                Map<String, Object> mapdata;
+////                try {
+////                    mapdata = gson.fromJson((new ObjectMapper()).writeValueAsString(k), map.getClass());
+////                    if (mapdata.containsKey("repository")) {
+////                        Map<String, Object> maprepo = gson.fromJson(new ObjectMapper().writeValueAsString(mapdata.get("repository")), map.getClass());
+////                        paramStr.append("[" + maprepo.get("full_name") + "]");
+////                    }
+//////                    if(mapdata.containsKey("commits")){
+//////                        Map<String, Object> mapcommits = gson.fromJson(new ObjectMapper().writeValueAsString(mapdata.get("commits")), map.getClass());
+//////                        paramStr.append("Commiter"+mapcommits.get("commiter")+"]");
+//////                    }
+////                } catch (JsonProcessingException e) {
+////                    e.printStackTrace();
+////                }
+//            }
+//        });
+        System.out.println("this is para"+paramStr);
         return returnString[0];
 
     }
