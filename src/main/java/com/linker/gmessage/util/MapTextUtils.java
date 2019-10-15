@@ -59,7 +59,7 @@ public class MapTextUtils {
 
     }
 
-    public static  String times(Object obj) throws ParseException {
+    public static String times(Object obj) throws ParseException {
         Date date = null;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         date = sdf.parse(String.valueOf(obj));
