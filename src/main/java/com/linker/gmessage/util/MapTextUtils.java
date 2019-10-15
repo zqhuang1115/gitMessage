@@ -63,12 +63,11 @@ public class MapTextUtils {
         Date date = null;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         date = sdf.parse(String.valueOf(obj));
-        //System.out.println("UTC时间: " + date);
+        System.out.println("UTC时间: " + date);
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        //calendar.set(Calendar.HOUR, calendar.get(Calendar.HOUR) + 8);
-        calendar.set(Calendar.HOUR, calendar.get(Calendar.HOUR));
-        System.out.println("calendar: " + calendar.getTime());
+        calendar.set(Calendar.HOUR, calendar.get(Calendar.HOUR) + 8);
+        //System.out.println("calendar: " + calendar.getTime());
         //calendar.getTime() 返回的是Date类型，也可以使用calendar.getTimeInMillis()获取时间戳
         return (new SimpleDateFormat("yyyy-MM-dd")).format(calendar.getTime());
     }
