@@ -19,6 +19,7 @@ public class MapTextUtils {
     public static  String textString(Map<String,Object> map) throws ParseException {
         Gson gson = new Gson();
         StringBuffer paramStr = new StringBuffer();
+        System.out.println(paramStr);
         Map<String, Object> mappusher = null;
         Map<String, Object> mapmessage = null;
         Map<String, Object> maprepo = null;
