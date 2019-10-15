@@ -19,7 +19,6 @@ public class MapTextUtils {
     public static  String textString(Map<String,Object> map) throws ParseException {
         Gson gson = new Gson();
         StringBuffer paramStr = new StringBuffer();
-        System.out.println(paramStr);
         Map<String, Object> mappusher = null;
         Map<String, Object> mapmessage = null;
         Map<String, Object> maprepo = null;
@@ -52,9 +51,9 @@ public class MapTextUtils {
             }
         }
         paramStr.append(mappusher.get("name") + "在" +
-                        maprepo.get("name") + "项目中提交新代码\n" +
-                        "提交信息：" + mapmessage.get("message")+"\n" +
-                        "提交时间：" + times(mapmessage.get("timestamp")) );
+                maprepo.get("name") + "项目中提交新代码\n" +
+                "提交信息：" + mapmessage.get("message")+"\n" +
+                "提交时间：" + times(mapmessage.get("timestamp")) );
 
         return paramStr.toString();
 
