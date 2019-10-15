@@ -1,3 +1,4 @@
+
 package com.linker.gmessage.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -24,25 +25,25 @@ public class MapTextUtils {
 //        System.out.println("this is k"+map.keySet());
 //        System.out.println(map);
 //        System.out.println(map.get("pusher"));
-        for (String name :map.keySet()){
-            if(name.equals("pusher")) {
+        map.forEach((k, v) -> {
+            if (k.equals("pusher")) {
                 //System.out.println(name);
                 Map<String, Object> mapdata;
                 try {
-                    mapdata = gson.fromJson((new ObjectMapper()).writeValueAsString(name), map.getClass());
+                    mapdata = gson.fromJson((new ObjectMapper()).writeValueAsString(v), map.getClass());
                     if (mapdata.containsKey("repository")) {
                         Map<String, Object> maprepo = gson.fromJson(new ObjectMapper().writeValueAsString(mapdata.get("repository")), map.getClass());
                         paramStr.append("[" + maprepo.get("full_name") + "]");
                     }
-                    if(mapdata.containsKey("commits")){
+                    if (mapdata.containsKey("commits")) {
                         Map<String, Object> mapcommits = gson.fromJson(new ObjectMapper().writeValueAsString(mapdata.get("commits")), map.getClass());
-                        paramStr.append("Commiter"+mapcommits.get("commiter"));
+                        paramStr.append("Commiter" + mapcommits.get("commiter"));
                     }
                 } catch (JsonProcessingException e) {
                     e.printStackTrace();
                 }
             }
-        };
+        });
 //        map.forEach((k, v) ->{
 //            if(k.equals("pusher")) {
 ////                System.out.println(k);
