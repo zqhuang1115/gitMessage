@@ -67,7 +67,6 @@ public class MapTextUtils {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.set(Calendar.HOUR, calendar.get(Calendar.HOUR) + 8);
-        //System.out.println("calendar: " + calendar.getTime());
         //calendar.getTime() 返回的是Date类型，也可以使用calendar.getTimeInMillis()获取时间戳
         return (new SimpleDateFormat("yyyy-MM-dd")).format(calendar.getTime());
     }
