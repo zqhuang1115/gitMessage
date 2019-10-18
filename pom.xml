@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.linker</groupId>
     <artifactId>gbmessage</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT-dev</version>
     <name>gbmessage</name>
     <description>Demo project for Spring Boot</description>
 
