@@ -7,6 +7,7 @@ import com.linker.gmessage.config.MsgType;
 import com.linker.gmessage.util.JsonUtils;
 //import com.linker.gmessage.util.MapMarkdownUtils;
 import com.linker.gmessage.util.MapTextUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,11 +24,15 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/git")
+@Slf4j
 public class GitCallBack {
 
     @PostMapping("/callBackText")
     public void callBack(HttpServletRequest request) throws Exception {
+        log.info("request"+request);
         Map<String, Object> map = formatTransform(request);
+        log.info("map"+map);
+
         //遍历Map,转为微信API格式
         String textContent =  MapTextUtils.textString(map);
         textSend(textContent);
