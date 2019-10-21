@@ -1,5 +1,5 @@
 
-package com.linker.gmessage.util;
+package com.linker.tower.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

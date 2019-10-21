@@ -1,4 +1,4 @@
-package com.linker.gmessage;
+package com.linker.tower;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

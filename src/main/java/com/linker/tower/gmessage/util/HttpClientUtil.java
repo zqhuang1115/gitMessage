@@ -1,4 +1,4 @@
-package com.linker.gmessage.util;
+package com.linker.tower.gmessage.util;
 
 import org.apache.http.*;
 import org.apache.http.client.HttpClient;
