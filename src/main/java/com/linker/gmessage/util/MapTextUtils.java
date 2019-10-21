@@ -55,7 +55,7 @@ public class MapTextUtils {
         paramStr.append(mappusher.get("name") + "在" +
                 maprepo.get("name") + "项目中提交新代码\n" +
                 "提交信息：" + mapmessage.get("message")+"\n" +
-                "提交时间：" + times(mapmessage.get("timestamp")) );
+                "提交时间："  );
 
         return paramStr.toString();
 
