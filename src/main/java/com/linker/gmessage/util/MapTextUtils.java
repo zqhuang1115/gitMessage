@@ -47,7 +47,6 @@ public class MapTextUtils {
                 } catch (JsonProcessingException e) {
                     e.printStackTrace();
                 }
-
             }
         }
         System.out.println("时间: " + mapmessage.get("timestamp"));
