@@ -55,7 +55,7 @@ public class MapTextUtils {
         paramStr.append(mappusher.get("name") + "在" +
                 maprepo.get("name") + "项目中提交新代码\n" +
                 "提交信息：" + mapmessage.get("message")+"\n" +
-                "提交时间：" + times(mapmessage.get("timestamp")) );
+                "提交时间：" + times(maprepo.get("updated_at")) );
 
         return paramStr.toString();
 
@@ -63,7 +63,7 @@ public class MapTextUtils {
 
     public static String times(Object obj) throws ParseException {
         Date date = null;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
         date = sdf.parse(String.valueOf(obj));
         System.out.println("UTC时间: " + date);
         Calendar calendar = Calendar.getInstance();
@@ -74,3 +74,5 @@ public class MapTextUtils {
     }
 
 }
+//        "updated_at": "2019-10-16T02:36:22Z",
+//         "timestamp": "2019-10-21T14:51:37+08:00",
