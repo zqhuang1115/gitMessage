@@ -50,6 +50,8 @@ public class MapTextUtils {
 
             }
         }
+        System.out.println("时间: " + maprepo.get("updated_at"));
+
         paramStr.append(mappusher.get("name") + "在" +
                 maprepo.get("name") + "项目中提交新代码\n" +
                 "提交信息：" + mapmessage.get("message")+"\n" +
