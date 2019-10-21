@@ -29,9 +29,9 @@ public class GitCallBack {
 
     @PostMapping("/callBackText")
     public void callBack(HttpServletRequest request) throws Exception {
-        log.info("request"+request);
+        log.info("request:"+request);
         Map<String, Object> map = formatTransform(request);
-        log.info("map"+map);
+        log.info("map:"+map);
 
         //遍历Map,转为微信API格式
         String textContent =  MapTextUtils.textString(map);
