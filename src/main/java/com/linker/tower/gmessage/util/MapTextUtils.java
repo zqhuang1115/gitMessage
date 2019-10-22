@@ -29,7 +29,7 @@ public class MapTextUtils {
         // String action = String.valueOf(map.get("action"));
         log.error("map.entry"+map.entrySet());
         for (Map.Entry<String, Object> entry : map.entrySet()) {
-            System.out.println("entry" + entry);
+            //System.out.println("entry" + entry);
 
             String k = entry.getKey();
             Object v = entry.getValue();
@@ -73,7 +73,7 @@ public class MapTextUtils {
         calendar.setTime(date);
         calendar.set(Calendar.HOUR, calendar.get(Calendar.HOUR) + 8);
         //calendar.getTime() 返回的是Date类型，也可以使用calendar.getTimeInMillis()获取时间戳
-        return (new SimpleDateFormat("yyyy-MM-dd")).format(calendar.getTime());
+        return (new SimpleDateFormat("yyyy-MM-dd")).format(calendar.getTimeInMillis());
     }
 
 }
