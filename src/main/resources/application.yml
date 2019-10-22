@@ -1,0 +1,12 @@
+spring:
+    application:
+        name: Linkerrs-tower
+    jpa:
+        open-in-view: false
+        hibernate:
+            ddl-auto: none
+            naming:
+                physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+                implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    main:
+        allow-bean-definition-overriding: true #\u5F53\u9047\u5230\u540C\u6837\u540D\u5B57\u7684\u65F6\u5019\uFF0C\u662F\u5426\u5141\u8BB8\u8986\u76D6\u6CE8\u518C
