@@ -68,14 +68,12 @@ public class MapTextUtils {
         Date date = null;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX");
         date = sdf.parse(String.valueOf(obj));
-        System.out.println("UTC时间: " + date);
+        //System.out.println("UTC时间: " + date);
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        System.out.println("2st"+date);
         calendar.set(Calendar.HOUR, calendar.get(Calendar.HOUR) + 8);
         //calendar.getTime() 返回的是Date类型，也可以使用calendar.getTimeInMillis()获取时间戳
-        System.out.println("time"+calendar.getTime()+calendar.getTimeInMillis());
-        return (new SimpleDateFormat("yyyy-MM-dd")).format(calendar.getTimeInMillis());
+        return (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm")).format(calendar.getTime());
     }
 
-}
+}//timestamp=2019-10-22T10:31:03+08:00
