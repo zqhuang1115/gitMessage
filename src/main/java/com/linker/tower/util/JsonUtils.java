@@ -1,4 +1,4 @@
-package com.linker.gmessage.util;
+package com.linker.tower.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -7,8 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 
 /**
- * @author huang.ziqing
- * @date 2019/10/12
+ * @author liu.jj
+ * @date 2019/09/25
  */
 @Slf4j
 public class JsonUtils {

@@ -1,4 +1,4 @@
-package com.linker.gmessage.config;
+package com.linker.tower.gmessage.config;
 
 public enum MsgType {
 

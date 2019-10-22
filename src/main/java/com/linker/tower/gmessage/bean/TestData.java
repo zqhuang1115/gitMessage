@@ -1,4 +1,4 @@
-package com.linker.gmessage.bean;
+package com.linker.tower.gmessage.bean;
 
 import lombok.Data;
 

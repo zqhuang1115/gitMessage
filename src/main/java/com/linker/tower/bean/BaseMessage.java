@@ -1,9 +1,10 @@
-package com.linker.gmessage.bean;
+package com.linker.tower.bean;
 
 /**
- * @author huang.ziqing
- * @date 2019/10/12
+ * @author liu.jj
+ * @date 2019/09/25
  */
+
 
 /**
  *

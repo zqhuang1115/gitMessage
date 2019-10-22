@@ -1,9 +1,10 @@
 
-package com.linker.gmessage.util;
+package com.linker.tower.gmessage.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
+import lombok.extern.slf4j.Slf4j;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,7 +16,9 @@ import java.util.Map;
  * @author huang.ziqing
  * @date 2019/10/12
  */
+@Slf4j
 public class MapTextUtils {
+
     public static  String textString(Map<String,Object> map) throws ParseException {
         Gson gson = new Gson();
         StringBuffer paramStr = new StringBuffer();
@@ -24,7 +27,10 @@ public class MapTextUtils {
         Map<String, Object> maprepo = null;
         // final String[] returnString = new String[1];
         // String action = String.valueOf(map.get("action"));
+        log.error("map.entry"+map.entrySet());
         for (Map.Entry<String, Object> entry : map.entrySet()) {
+            System.out.println("entry" + entry);
+
             String k = entry.getKey();
             Object v = entry.getValue();
             if (k.equals("pusher")) {
@@ -47,7 +53,6 @@ public class MapTextUtils {
                 } catch (JsonProcessingException e) {
                     e.printStackTrace();
                 }
-
             }
         }
         paramStr.append(mappusher.get("name") + "在" +
