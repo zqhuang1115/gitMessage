@@ -71,7 +71,7 @@ public class MapTextUtils {
         //System.out.println("UTC时间: " + date);
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        calendar.set(Calendar.HOUR, calendar.get(Calendar.HOUR) + 8);
+        calendar.set(Calendar.HOUR, calendar.get(Calendar.HOUR));
         //calendar.getTime() 返回的是Date类型，也可以使用calendar.getTimeInMillis()获取时间戳
         return (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm")).format(calendar.getTime());
     }
