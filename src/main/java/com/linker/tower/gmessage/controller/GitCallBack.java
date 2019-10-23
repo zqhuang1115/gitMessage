@@ -32,9 +32,6 @@ public class GitCallBack {
     public void callBack(HttpServletRequest request) throws Exception {
 
         String content = IOUtils.toString(request.getInputStream(), request.getCharacterEncoding());
-        request.setCharacterEncoding("UTF-8");
-        log.info("getInputStream: "+ request.getInputStream());
-        log.info("request: "+ request);
 
         log.info("content={}", content);
 
