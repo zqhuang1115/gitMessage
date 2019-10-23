@@ -55,7 +55,7 @@ public class GitCallBack {
     }
 
 
-    //文本发送test
+    //文本发送
     public void textSend(String textContent) {
 
         // 空文本不用发送
