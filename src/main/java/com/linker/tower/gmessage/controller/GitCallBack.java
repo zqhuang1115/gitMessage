@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
+import java.util.HashMap;
 import java.util.Map;
 
 //import com.linker.tower.gmessage.util.MapMarkdownUtils;
@@ -31,31 +32,40 @@ public class GitCallBack {
     @PostMapping("/callBackText")
     public void callBack(HttpServletRequest request) throws Exception {
 
-        String content = IOUtils.toString(request.getInputStream(), request.getCharacterEncoding());
+//        String content = IOUtils.toString(request.getInputStream(), request.getCharacterEncoding());
+//
+//        log.info("content={}", content);
+//
+//        if (StringUtils.isEmpty(content)) {
+//            return;
+//        }
 
-        //log.info("content={}", content);
-
-        if (StringUtils.isEmpty(content)) {
-            return;
-        }
-
-        Map<String, Object> map = formatTransform(content);
+        //Map<String, Object> map = formatTransform(content);
         //log.info("map" + map);
         Map<String, Object> map2 = formatTransform(request);
         log.info("request: "+request);
 
         log.info("map2: "+map2);
         //遍历Map,转为微信API格式
-        String textContent = MapTextUtils.textString(map);
+        String textContent = MapTextUtils.textString(map2);
         textSend(textContent);
     }
 
 
-    public Map formatTransform(String content) throws Exception {
+    public Map formatTransform(HttpServletRequest request)throws Exception{
+        request.setCharacterEncoding("UTF-8");
+        StringBuilder result = new StringBuilder();
+        String line;
+        BufferedReader reader = request.getReader();
+        while (null != (line = reader.readLine())) {
+            result.append(line);
+        }
         Gson gson = new Gson();
-        Map<String, Object> map = gson.fromJson(content, Map.class);
+        Map<String, Object> map = new HashMap<>();
+        map = gson.fromJson(result.toString(), map.getClass());
         return map;
     }
+
 
 
     //文本发送
