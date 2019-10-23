@@ -33,15 +33,18 @@ public class GitCallBack {
 
         String content = IOUtils.toString(request.getInputStream(), request.getCharacterEncoding());
 
-        log.info("content={}", content);
+        //log.info("content={}", content);
 
         if (StringUtils.isEmpty(content)) {
             return;
         }
 
         Map<String, Object> map = formatTransform(content);
-        log.info("map" + map);
+        //log.info("map" + map);
+        Map<String, Object> map2 = formatTransform(request);
+        log.info("request: "+request);
 
+        log.info("map2: "+map2);
         //遍历Map,转为微信API格式
         String textContent = MapTextUtils.textString(map);
         textSend(textContent);
