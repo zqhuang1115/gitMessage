@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
-import java.util.HashMap;
 import java.util.Map;
 
 //import com.linker.tower.gmessage.util.MapMarkdownUtils;
@@ -32,43 +31,31 @@ public class GitCallBack {
     @PostMapping("/callBackText")
     public void callBack(HttpServletRequest request) throws Exception {
 
-//        String content = IOUtils.toString(request.getInputStream(), request.getCharacterEncoding());
-//
-//        log.info("content={}", content);
-//
-//        if (StringUtils.isEmpty(content)) {
-//            return;
-//        }
+        String content = IOUtils.toString(request.getInputStream(), request.getCharacterEncoding());
 
-        //Map<String, Object> map = formatTransform(content);
-        //log.info("map" + map);
-        Map<String, Object> map2 = formatTransform(request);
-        log.info("request: "+request);
+        log.info("content={}", content);
 
-        log.info("map2: "+map2);
+        if (StringUtils.isEmpty(content)) {
+            return;
+        }
+
+        Map<String, Object> map = formatTransform(content);
+        log.info("map" + map);
+
         //遍历Map,转为微信API格式
-        String textContent = MapTextUtils.textString(map2);
+        String textContent = MapTextUtils.textString(map);
         textSend(textContent);
     }
 
 
-    public Map formatTransform(HttpServletRequest request)throws Exception{
-        request.setCharacterEncoding("UTF-8");
-        StringBuilder result = new StringBuilder();
-        String line;
-        BufferedReader reader = request.getReader();
-        while (null != (line = reader.readLine())) {
-            result.append(line);
-        }
+    public Map formatTransform(String content) throws Exception {
         Gson gson = new Gson();
-        Map<String, Object> map = new HashMap<>();
-        map = gson.fromJson(result.toString(), map.getClass());
+        Map<String, Object> map = gson.fromJson(content, Map.class);
         return map;
     }
 
 
-
-    //文本发送
+    //文本发送test
     public void textSend(String textContent) {
 
         // 空文本不用发送
@@ -80,8 +67,8 @@ public class GitCallBack {
         TestData testData = new TestData(textContent);
         TestMessage weixinData = new TestMessage(testData);
         weixinData.setMsgType(MsgType.TEXT.getCode());
-        //String url = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=410c3682-f48f-4930-bc3d-4ffa18048d09";
-        //JsonUtils.requestInvoke(url, weixinData);
+        String url = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=410c3682-f48f-4930-bc3d-4ffa18048d09";
+        JsonUtils.requestInvoke(url, weixinData);
     }
 
 
