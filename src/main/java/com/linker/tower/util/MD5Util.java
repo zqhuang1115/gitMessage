@@ -12,7 +12,7 @@ import java.security.NoSuchAlgorithmException;
 @Component
 public class MD5Util {
 
-    public String getMdFive(String content) {
+    public static String getMdFive(String content) {
         try {
             // 加密对象，指定加密方式
             MessageDigest md5 = MessageDigest.getInstance("md5");
@@ -34,5 +34,9 @@ public class MD5Util {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static void main(String[] args){
+        System.out.println(getMdFive("user"));
     }
 }

@@ -8,12 +8,14 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.core.env.Environment;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import utils.DefaultProfileUtil;
 
 import java.net.InetAddress;
 
 @Slf4j
 @SpringBootApplication
+@EnableSwagger2
 @EnableJpaRepositories(basePackages = {"com.linker.tower.repository","**.repository"})
 @EnableAutoConfiguration(exclude={DruidDataSourceAutoConfigure.class, DataSourceAutoConfiguration.class})
 public class LinkerTowerApplication {
