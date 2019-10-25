@@ -16,7 +16,7 @@ import java.net.InetAddress;
 @Slf4j
 @SpringBootApplication
 @EnableSwagger2
-@EnableJpaRepositories(basePackages = {"com.linker.tower.repository","**.repository"})
+@EnableJpaRepositories(basePackages = {"com.linker.tower","**.repository"})
 @EnableAutoConfiguration(exclude={DruidDataSourceAutoConfigure.class, DataSourceAutoConfiguration.class})
 public class LinkerTowerApplication {
 
