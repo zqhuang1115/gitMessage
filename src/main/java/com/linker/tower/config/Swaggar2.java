@@ -1,4 +1,4 @@
-package com.linker.tower;
+package com.linker.tower.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
